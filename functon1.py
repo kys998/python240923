@@ -25,4 +25,16 @@ def func1(a):
     return a+x
 print(func1(1))
 
-print(func2(1))
+#print(func2(1))
+
+def union(*ar):
+    resul=[]
+    for item in ar:
+        for x in item:
+            if x not in result:
+                result.append(x)
+    return result
+
+print(union("ham","egg"))       
+print(union("ham","egg", "spam"))       
+
