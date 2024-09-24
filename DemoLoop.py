@@ -20,3 +20,6 @@ print("리스트 컴프리헨션")
 lst=list(range(1,11))
 print(lst)
 
+print("리스트 컴프리헨션")
+lst=list(range(1,11))
+print(lst)
