@@ -1,0 +1,36 @@
+# 챗gpt로 만든 엑셀파일
+
+import openpyxl
+import random
+
+# 엑셀 워크북 생성
+wb = openpyxl.Workbook()
+ws = wb.active
+ws.title = "Product Sales"
+
+# 헤더 추가
+headers = ["Product ID", "Product Name", "Quantity", "Price"]
+ws.append(headers)
+
+# 샘플 제품명 리스트
+product_names = [
+    "Smartphone", "Laptop", "Tablet", "Smartwatch", "Camera",
+    "Bluetooth Speaker", "Headphones", "Monitor", "Keyboard", "Mouse",
+    "External Hard Drive", "Printer", "Router", "Smart TV", "Drone",
+    "Gaming Console", "Fitness Tracker", "Projector", "VR Headset", "Action Camera"
+]
+
+# 100개의 데이터 생성
+for i in range(1, 101):
+    product_id = f"P{i:03d}"  # 제품 ID (예: P001, P002...)
+    product_name = random.choice(product_names)  # 제품명 랜덤 선택
+    quantity = random.randint(1, 50)  # 수량은 1에서 50개 사이 랜덤
+    price = round(random.uniform(50, 2000), 2)  # 가격은 50에서 2000 사이 랜덤(float)
+
+    # 엑셀에 행 추가
+    ws.append([product_id, product_name, quantity, price])
+
+# 엑셀 파일 저장
+wb.save("products.xlsx")
+
+print("products.xlsx 파일이 생성되었습니다.")
